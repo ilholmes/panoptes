@@ -220,7 +220,7 @@ class PanoptesConsumer(object):
         assert keys is None or PanoptesValidators.valid_nonempty_iterable_of_strings(keys), \
             'keys must be None or a list of non-empty strings'
         assert PanoptesValidators.valid_positive_integer(poll_timeout), 'poll_timeout must be an integer'
-        assert hasattr(callback, '__call__'), 'callback must be a callable'
+        assert PanoptesValidators.valid_callback(callback), 'callback must be a callable'
         assert isinstance(validate, bool), 'validate must be a boolean'
         assert PanoptesValidators.valid_nonzero_integer(session_timeout), 'session_timeout must be an integer '\
                                                                           'greater than zero'
